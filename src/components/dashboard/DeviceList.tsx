@@ -176,7 +176,9 @@ export default function DeviceList({ devices, onDeviceUpdate }: DeviceListProps)
             : device
         );
         setLocalDevices(updatedDevices);
-        onDeviceUpdate && onDeviceUpdate(updatedDevices);
+        if (onDeviceUpdate) {
+          onDeviceUpdate(updatedDevices);
+        }
         
         // Close modal after a short delay
         setTimeout(() => {
@@ -185,10 +187,10 @@ export default function DeviceList({ devices, onDeviceUpdate }: DeviceListProps)
         }, 2000);
       }, 1500);
       
-    } catch (error: any) {
+    } catch (error) {
       console.error("Demo authorization error:", error);
       setAuthStatus('error');
-      setAuthMessage('Error in demo: ' + (error.message || 'Unknown error'));
+      setAuthMessage('Error in demo: ' + (error instanceof Error ? error.message : 'Unknown error'));
     }
   };
 
