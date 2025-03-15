@@ -1,19 +1,8 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { FiWifi, FiAlertTriangle, FiClock, FiMoreVertical, FiCheck, FiX } from 'react-icons/fi';
-
-interface Device {
-  id: string;
-  name: string;
-  ip: string;
-  mac: string;
-  status: string;
-  lastActive: string;
-  type: string;
-  manufacturer: string;
-  risk: string;
-}
+import { FiWifi, FiAlertTriangle, FiClock, FiMoreVertical } from 'react-icons/fi';
+import type { Device } from '@/types';
 
 interface DeviceListProps {
   devices: Device[];

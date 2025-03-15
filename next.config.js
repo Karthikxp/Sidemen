@@ -8,11 +8,7 @@ const nextConfig = {
   },
   async rewrites() {
     return [];
-  },
-  // Server configuration
-  server: {
-    port: 4050,
-  },
+  }
 }
 
 module.exports = nextConfig; 
