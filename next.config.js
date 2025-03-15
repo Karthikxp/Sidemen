@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    serverActions: true
+    serverActions: {
+      allowedOrigins: ['localhost:4050']
+    }
   },
   images: {
     domains: ['localhost']

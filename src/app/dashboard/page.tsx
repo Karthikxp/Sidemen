@@ -138,13 +138,17 @@ export default function Dashboard() {
         <main className="flex-1 p-4">
           <Sidebar activeView={activeView} setActiveView={setActiveView} />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            <NetworkStatus devices={devices} />
-            <ThreatDetection devices={devices} />
-            <SecurityMetrics devices={devices} />
-          </div>
+          {activeView === 'overview' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+              <NetworkStatus devices={devices} />
+              <ThreatDetection devices={devices} />
+              <SecurityMetrics devices={devices} />
+            </div>
+          )}
           
-          <DeviceList devices={devices} onDeviceUpdate={handleDeviceUpdate} />
+          {activeView === 'devices' && (
+            <DeviceList devices={devices} onDeviceUpdate={handleDeviceUpdate} />
+          )}
         </main>
       </div>
     </div>
